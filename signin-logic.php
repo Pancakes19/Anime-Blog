@@ -32,7 +32,7 @@ if(isset($_POST['submit'])) {
 				//log normal admin in
 				header('location: ' . ROOT_URL . 'admin/');
 			} else { 
-				$_SESSION['signin'] = "I think your password is wrong bruh!";
+				$_SESSION['signin'] = "I think something is wrong bruh!";
 			}
 		} else {
 			$_SESSION['signin'] = "That user does not exist bruh!";

@@ -26,16 +26,19 @@ require 'config/database.php';
                   <li><a href="<?= ROOT_URL ?>about.php">About</a></li>
                   <li><a href="<?= ROOT_URL ?>services.php">Servies</a></li>
                   <li><a href="<?= ROOT_URL ?>contact.php">Contact</a></li>
+                <?php if(isset($_SESSION['user-id'] )) :  ?>
+					  <li class="nav__profile">
+						  <div class="avatar">
+							  <img src="../images/cat.jpg" alt="">
+						  </div>
+						  <ul>
+							  <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
+							  <li><a href="<?= ROOT_URL ?>logout.php">Logout</a></li>
+						  </ul>
+					  </li>
+					 <?php else : ?>
                   <li><a href="<?= ROOT_URL ?>signin.php">Signin</a></li>
-                  <!-- <li class="nav__profile">
-                      <div class="avatar">
-                          <img src="./images/cat.jpg" alt="">
-                      </div>
-                      <ul>
-                          <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
-                          <li><a href="<?= ROOT_URL ?>logout.php">Logout</a></li>
-                      </ul>
-                  </li> -->
+                 <?php endif ?>
 
               </ul>
               <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
