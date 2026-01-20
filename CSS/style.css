@@ -128,7 +128,7 @@ nav button {
     height: 2.5rem;
     border-radius: 50%;
     overFlow: hidden;
-    border: 0.3rem solid var(--color-bg);
+    border: 0.2rem solid var(--color-bg);
 }
 
 .nav__logo{
