@@ -1,11 +1,29 @@
 <?php
 include 'partials/header.php';
+
+//fetch users from database except the current user
+$current_admin-id = $_SESSION['user-id'];
+
+$query = "SELECT * FROM users WHERE NOT id=$current_admin-id";
+$users = mysqli_query($connection, $query);
 ?>
 
     <section class="dashboard">
+	
+	<?php if(isset($_SESSION['add-user-success'])) : ?>
+		 <div class="alert__message success container">
+			<p>
+				<?= $_SESSION['add-user-success']; 
+				unset($_SESSION['add-user-success']);
+				?>
+			</p>
+		</div>
+		<?php endif ?>
+	
       <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-double-right"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-double-left"></i></button>
+		
         <aside>
           <ul>
             <li>
@@ -62,28 +80,7 @@ include 'partials/header.php';
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
                         <td>Yes</td>
                     </tr>
-                    <tr>
-                        <td>Selma Iileka</td>
-                        <td>kitty</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Herbert jantjies</td>
-                        <td>herbert</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>tjitjihaanda kaheuva</td>
-                        <td>benito flakes</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>No</td>
-                    </tr>
-                    
+                
                 </tbody>
             </table>
         </main>
