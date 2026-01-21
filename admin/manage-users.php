@@ -2,9 +2,9 @@
 include 'partials/header.php';
 
 //fetch users from database except the current user
-$current_admin-id = $_SESSION['user-id'];
+$current_admin_id = $_SESSION['user-id'];
 
-$query = "SELECT * FROM users WHERE NOT id=$current_admin-id";
+$query = "SELECT * FROM users WHERE NOT id=$current_admin_id";
 $users = mysqli_query($connection, $query);
 ?>
 
@@ -73,12 +73,14 @@ $users = mysqli_query($connection, $query);
                     </tr>
                 </thead>
                 <tbody>
+				<?php while($user = mysqli_fetch_assoc($users)) :  ?>
                     <tr>
-                        <td>Quinton Khuwisb</td>
-                        <td>allmight100</td>
+                        <td><?=  "{$user['firstname']} {$user['lastname']}"  ?></td>
+                        <td><?= $user['username']?></td>
                         <td><a href="edit-user.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
                         <td>Yes</td>
+						<?php endwhile ?>
                     </tr>
                 
                 </tbody>
