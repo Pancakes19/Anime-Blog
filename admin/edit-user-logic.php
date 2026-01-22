@@ -6,5 +6,10 @@ if(isset($_POST['submit'])) {
 	$lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$is_admin = filter_var($_POST['userrole'],  FILTER_SANITIZE_NUMBER_INT);
 	
-	
+	//check for valid imput
+	if(!$firstname || !$lastname) {
+		$_SESSION['edit-user'] = "Invalid input on edit user page bro"
+	}else {
+		//update users table
+	}
 }
