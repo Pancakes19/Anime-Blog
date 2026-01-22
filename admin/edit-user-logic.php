@@ -17,7 +17,12 @@ if(isset($_POST['submit'])) {
 		$result = mysqli_query($connection, $query);
 		
 		if(mysqli_errno($connection)) {
-			$_SESSION['edit-user'] = "Failed to update user";
+			$_SESSION['edit-user'] = "Failed to update user.";
+		}else{
+			$_SESSION['edit-user-success'] = "User $firstname $lastname updated successfully";
 		}
 	}
 }
+
+header('location: ' .  ROOT_URL . 'admin/manage-users.php');
+die():
