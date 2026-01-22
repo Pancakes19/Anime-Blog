@@ -28,7 +28,7 @@ if(isset($_SESSION['user-id'])) {
   <body>
       <nav>
           <div class="container nav__container">
-              <a href="<?= ROOT_URL ?>" class="nav__logo">Anime Blog</a>
+              <a href="<?= ROOT_URL ?>" class="nav__logo">Quinton's Blog</a>
               <ul class="nav__items">
                   <li><a href="<?= ROOT_URL ?>blog.php">Blog</a></li>
                   <li><a href="<?= ROOT_URL ?>about.php">About</a></li>
