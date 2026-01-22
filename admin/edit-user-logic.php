@@ -1,4 +1,4 @@
-<?
+<?php
 require 'config/database.php';
 
 if(isset($_POST['submit'])) {
@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
 	
 	//check for valid imput
 	if(!$firstname || !$lastname) {
-		$_SESSION['edit-user'] = "Invalid input on edit user page bro"
+		$_SESSION['edit-user'] = "Invalid input on edit user page bro";
 	}else {
 		//update users table
 		$query = "UPDATE users SET firstname= '$firstname', lastname='$lastname', is_admin=$is_admin WHERE id=$id LIMIT 1";
@@ -24,5 +24,5 @@ if(isset($_POST['submit'])) {
 	}
 }
 
-header('location: ' .  ROOT_URL . 'admin/manage-users.php');
-die():
+header('location: ' . ROOT_URL . 'admin/manage-users.php');
+die();
