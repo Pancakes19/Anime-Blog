@@ -1,4 +1,6 @@
-<?php
+<?
+require 'config/database.php';
+
 if(isset($_POST['submit'])) {
 	//get updated form data
 	$id = filter_var($_POST['id'],  FILTER_SANITIZE_NUMBER_INT);
@@ -11,5 +13,11 @@ if(isset($_POST['submit'])) {
 		$_SESSION['edit-user'] = "Invalid input on edit user page bro"
 	}else {
 		//update users table
+		$query = "UPDATE users SET firstname= '$firstname', lastname='$lastname', is_admin=$is_admin WHERE id=$id LIMIT 1";
+		$result = mysqli_query($connection, $query);
+		
+		if(mysqli_errno($connection)) {
+			$_SESSION['edit-user'] = "Failed to update user";
+		}
 	}
 }
