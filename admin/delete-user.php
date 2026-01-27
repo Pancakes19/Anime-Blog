@@ -35,3 +35,6 @@ if(isset($_GET['id'])) {
 		$_SESSION['delete-user-success'] = "'{$user['firstname']}' '{$user['lastname']}' deleted successfully";
 	}
 }
+
+header('location: ' . ROOT_URL . 'admin/manage-users.php');
+die();
