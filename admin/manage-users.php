@@ -4,7 +4,7 @@ include 'partials/header.php';
 //fetch users from database except the current user
 $current_admin_id = $_SESSION['user-id'];
 
-$query = "SELECT * FROM users WHERE NOT id=$current_admin_id ";
+$query = "SELECT * FROM users WHERE NOT id=$current_admin_id ORDER BY firstname";
 $users = mysqli_query($connection, $query);
 ?>
 
