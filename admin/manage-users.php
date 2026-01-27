@@ -18,6 +18,14 @@ $users = mysqli_query($connection, $query);
 				?>
 			</p>
 		</div>
+		<?php elseif (isset($_SESSION['edit-user-success'])) : ?>
+		 <div class="alert__message success container">
+			<p>
+				<?= $_SESSION['edit-user-success']; 
+				unset($_SESSION['edit-user-success']);
+				?>
+			</p>
+		</div>
 		<?php endif ?>
 	
       <div class="container dashboard__container">
