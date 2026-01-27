@@ -25,6 +25,13 @@ $users = mysqli_query($connection, $query);
 				unset($_SESSION['edit-user-success']);
 				?>
 			</p>
+		</div><?php elseif (isset($_SESSION['edit-user'])) : ?>
+		 <div class="alert__message error container">
+			<p>
+				<?= $_SESSION['edit-user']; 
+				unset($_SESSION['edit-user']);
+				?>
+			</p>
 		</div>
 		<?php endif ?>
 	
