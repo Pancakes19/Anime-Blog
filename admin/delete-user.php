@@ -19,4 +19,19 @@ if(isset($_GET['id'])) {
 			unlink($avatar_path);			
 		}
 	}
+	//for later
+	//fetch all thumbnails of user and delete
+	
+	
+	
+	
+	
+	//delete user from database
+	$delete_user_query = "DELETE FROM users WHERE id=$id";
+	$delete_user_result = mysqli_query($connection, $delete_user_query);
+	if (mysqli_errno($connection)){
+		$_SESSION['delete-user'] = "couldn't delete '{$user['firstname']}' '{$user['lastname']}'";
+	} else {
+		$_SESSION['delete-user-success'] = "'{$user['firstname']}' '{$user['lastname']}' deleted successfully";
+	}
 }
