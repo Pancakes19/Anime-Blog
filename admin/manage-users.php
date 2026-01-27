@@ -25,11 +25,26 @@ $users = mysqli_query($connection, $query);
 				unset($_SESSION['edit-user-success']);
 				?>
 			</p>
-		</div><?php elseif (isset($_SESSION['edit-user'])) : ?>
+		</div>
+		<?php elseif (isset($_SESSION['edit-user'])) : ?>
 		 <div class="alert__message error container">
 			<p>
 				<?= $_SESSION['edit-user']; 
 				unset($_SESSION['edit-user']);
+				?>
+			</p>
+		</div><?php elseif (isset($_SESSION['delete-user'])) : ?> // if delete is not successfull
+		 <div class="alert__message error container">
+			<p>
+				<?= $_SESSION['delete-user']; 
+				unset($_SESSION['delete-user']);
+				?>
+			</p>
+		</div><?php elseif (isset($_SESSION['delete-user-success'])) : ?> //if delete is successfull
+		 <div class="alert__message success container">
+			<p>
+				<?= $_SESSION['delete-user-success']; 
+				unset($_SESSION['delete-user-success']);
 				?>
 			</p>
 		</div>

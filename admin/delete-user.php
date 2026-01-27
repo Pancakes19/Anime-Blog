@@ -12,7 +12,7 @@ if(isset($_GET['id'])) {
 	//making sure we got back only one userif
 	if(mysqli_num_rows($result) == 1) {
 		$avatar_name = $user['avatar'];
-		$avatar_path = '../images' . $avatar_name;
+		$avatar_path = '../images/' . $avatar_name;
 		
 		//delete image if it exists
 		if ($avatar_path) {
@@ -32,7 +32,7 @@ if(isset($_GET['id'])) {
 	if (mysqli_errno($connection)){
 		$_SESSION['delete-user'] = "couldn't delete '{$user['firstname']}' '{$user['lastname']}'";
 	} else {
-		$_SESSION['delete-user-success'] = "'{$user['firstname']}' '{$user['lastname']}' deleted successfully";
+		$_SESSION['delete-user-success'] = "{$user['firstname']} {$user['lastname']} deleted successfully";
 	}
 }
 
