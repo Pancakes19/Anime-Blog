@@ -24,8 +24,8 @@ if(isset($_GET['id'])) {
 <div class="container form__section-container">
     <h2>Edit Category</h2>
     <form action="">
-        <input type="text" placeholder="Title">
-        <textarea rows="4" placeholder="Description">
+        <input type="text" value="<?= $category['title'] ?>" placeholder="Title">
+        <textarea rows="4" placeholder="Description"> <?= $category['description'] ?>
         </textarea>
         
         <button type="submit" class="btn">Update Category</button>
