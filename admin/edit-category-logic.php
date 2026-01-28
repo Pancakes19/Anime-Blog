@@ -13,6 +13,13 @@ if(isset($_POST['submit'])) {
 	} else{
 		$query = "UPDATE categories SET title='$title', description='$description' WHERE id='$id' LIMIT 1";
 		$result = mysqli_query($connection, $query);
+		
+		if(mysqli_errno($connection)) {
+			$_SESSION['edit-category'] = "could not update category";
+		} else {
+			$_SESSION['edit-category-success'] = "category $title was updated successfully";
+		}
 	}
-	
 }
+header('location: ' . ROOT_URL . 'admin/manage-categories.php');
+die();
