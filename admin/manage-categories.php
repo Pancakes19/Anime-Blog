@@ -16,7 +16,7 @@ $categories  = mysqli_query($connection, $query);
 				?>
 			</p>
 		</div>
-		<?php if(isset($_SESSION['add-category'])) : //shows if category was a success?>
+		<?php elseif (isset($_SESSION['add-category'])) : //shows if category was a errored?>
 		 <div class="alert__message error container">
 			<p>
 				<?= $_SESSION['add-category']; 
