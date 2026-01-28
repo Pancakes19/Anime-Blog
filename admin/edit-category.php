@@ -6,6 +6,9 @@ if(isset($_GET['id'])) {
 	//fetching categories from db
 	$query = "SELECT * FROM categories WHERE id=$id";
 	$result = mysqli_query($connection, $query);
+	if(mysqli_num_rows($result) == 1) {
+		$category = mysqli_fetch_assoc($result);
+	}
 	
 } else{
 	header('location: ' . ROOT_URL . 'admin/manage-categories.php');
