@@ -47,7 +47,7 @@ $categories  = mysqli_query($connection, $query);
 				unset($_SESSION['delete-category-success']);
 				?>
 			</p>
-		</div>
+		</div>   
 	<?php endif ?>
 	
       <div class="container dashboard__container">
