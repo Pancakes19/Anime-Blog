@@ -12,5 +12,8 @@ if(isset($_GET['id'])) {
 	//delete category
 	$query = "DELETE FROM categories WHERE id=$id LIMIT 1";
 	$result = mysqli_query($connection, $query);
+	$_SESSION['delete-category-success'] = "category deleted successfully";
 }
 
+header('location: ' . ROOT_URL . 'admin/manage-categories.php');
+die();
