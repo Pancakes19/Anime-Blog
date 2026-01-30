@@ -19,7 +19,9 @@ $categories = mysqli_query($connection, $query);
     <form action="<?= ROOT_URL ?>admin/add-post-logic.php" enctype="multipart/form-data" method="POST">
         <input type="text" name="title" placeholder="Title">
         <select name="category">
-            <option value="1">Anime</option>
+		<?php while($category = mysqli_fetch_assoc($categories)) : ?>
+            <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
+			<?php endwhile ?>
         </select>
         <textarea rows="10" name="body" placeholder="Body"></textarea>
 		
