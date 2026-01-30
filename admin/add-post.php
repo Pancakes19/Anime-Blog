@@ -1,5 +1,11 @@
 <?php
 include 'partials/header.php';
+
+//fetch cats from dbase_add_record
+$query = "SELECT * FROM categories";
+$categories = mysqli_query($connection, $query);
+
+
 ?>
 
 
