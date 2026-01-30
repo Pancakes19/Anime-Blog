@@ -22,7 +22,26 @@ if(isset($_POST['submit'])){
 	}elseif (!$thumbnail['name']) {
 		$_SESSION['add-post'] = "choose post thumbnail";
 	} else {
+		//rename image with timestamp
+		$time = time();
+		$thumbnail_name = $time . $thumbnail['name'];
+		$thumbnail_tmp_name = $thumbnail['tmp_name'];
+		$thumbnail_destination_path = '../images/' . $thumbnail_name;
 		
+		//make sure file is an image
+		$allowed_files = ['jpg', 'png', 'jpeg'];
+		$extension = explode('.', $thumbnail_name);
+		$extension = end($extension);
+		if(in_array($extension, $allowed_files)){
+			//make sure image is not too big
+			if($thumbnail['size'] < 2_000_000) {
+				//upload pic
+				move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
+			} else {
+				$_SESSION['add-post'] = "file size too large";
+			}			
+		}else {
+				$_SESSION['add-post'] = "file should be png, jpg, jpeg";
 	}
 	
 }
