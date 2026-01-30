@@ -10,11 +10,10 @@ include 'partials/header.php';
     <div class="alert__message error">
         <p>Sign In failed. Try again Broskii</p>
     </div>
-    <form action="" enctype="multipart/form-data">
+    <form action="" enctype="multipart/form-data" method="POST">
         <input type="text" placeholder="Title">
         <select>
             <option value="1">Anime</option>
-            <option value="1">Marvel</option>
         </select>
         <textarea rows="10" placeholder="Body"></textarea>
         <div class="form__control inline">
