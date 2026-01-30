@@ -12,7 +12,18 @@ if(isset($_POST['submit'])){
 	//set is_featured to 0 if unchecked 
 	$is_featured = $is_featured == 1 ?: 0;
 	
-	//validate form
+	//validate form input
+	if(!$title) {
+		$_SESSION['add-post'] = "enter post title";
+	} elseif (!$category) {
+		$_SESSION['add-post'] = "enter post category";
+	}elseif (!$body) {
+		$_SESSION['add-post'] = "enter post body";
+	}elseif (!$thumbnail['name']) {
+		$_SESSION['add-post'] = "choose post thumbnail";
+	} else {
+		
+	}
 	
 }
 
