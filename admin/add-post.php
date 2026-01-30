@@ -16,10 +16,16 @@ include 'partials/header.php';
             <option value="1">Anime</option>
         </select>
         <textarea rows="10" name="body" placeholder="Body"></textarea>
+		
+		<?php if(isset($_SESSION['user_is_admin'])) : //isFeatured fo admins only?>
+		
         <div class="form__control inline">
             <input type="checkbox" name="is_featured" value="1" id="is_featured" checked>
             <label for="is_featured" >Featured</label>
         </div>
+		
+		<?php endif?>
+		
         <div class="form__control">
             <label for="thumbnail">Add thumbnail</label>
             <input type="file" name="thumbnail" id="thumbnail">
