@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
 	$author_id = $_SESSION['user-id'];
 	$title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$category_id = filter_var($_POST['category_id'], FILTER_SANITIZE_NUMBER_INT);
+	$category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
 	$is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
 	$thumbnail = $_FILES['thumbnail'];
 	
@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
 	//validate form input
 	if(!$title) {
 		$_SESSION['add-post'] = "enter post title";
-	} elseif (!$category) {
+	} elseif (!$category_id) {
 		$_SESSION['add-post'] = "enter post category";
 	}elseif (!$body) {
 		$_SESSION['add-post'] = "enter post body";
@@ -32,16 +32,24 @@ if(isset($_POST['submit'])){
 		$allowed_files = ['jpg', 'png', 'jpeg'];
 		$extension = explode('.', $thumbnail_name);
 		$extension = end($extension);
-		if(in_array($extension, $allowed_files)){
+		if (in_array($extension, $allowed_files)) {
 			//make sure image is not too big
-			if($thumbnail['size'] < 2_000_000) {
+			if ($thumbnail['size'] < 2_000_000) {
 				//upload pic
 				move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
 			} else {
 				$_SESSION['add-post'] = "file size too large";
 			}			
-		}else {
+		} else {
 				$_SESSION['add-post'] = "file should be png, jpg, jpeg";
+		}	
+	}
+	
+	//redirect back (with for data) to add-post page if there is any problem
+	if(isset($_SESSION['add-post'])) {
+		$_SESSION['add-post-data'] = $_POST;
+		header('location: ' . ROOT_URL . 'admin/add-post.php');
+		die();
 	}
 	
 }
