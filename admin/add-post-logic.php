@@ -50,8 +50,15 @@ if(isset($_POST['submit'])){
 		$_SESSION['add-post-data'] = $_POST;
 		header('location: ' . ROOT_URL . 'admin/add-post.php');
 		die();
+	} else {
+		// set is_feature for all post to 0 if this post is featured
+		if($is_featured == 1) {
+			$zero_all_is_featured_query = "UPDATE posts SET is_featured=0";
+			$zero_all_is_featured_result = mysqli_query($connection, $zero_all_is_featured_query);
+		}
+		
+		
 	}
-	
 }
 
 
