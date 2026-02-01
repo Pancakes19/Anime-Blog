@@ -1,5 +1,11 @@
 <?php
 include 'partials/header.php';
+
+
+// fetch current users posts from db 
+$current_user_id = $_SESSION['user-id'];
+$query = "SELECT id, title, category_id FROM posts WHERE author_id=$current_user_id ORDER by id DESC";
+$posts = mysqli_query($connection, $query);
 ?>
 
     <section class="dashboard">
@@ -45,6 +51,7 @@ include 'partials/header.php';
         </aside>
         <main>
             <h2>Manage Posts</h2>
+			<?php if(mysqli_num_rows($posts) > 0) : ?>
             <table>
                 <thead>
                     <tr>
@@ -55,32 +62,29 @@ include 'partials/header.php';
                     </tr>
                 </thead>
                 <tbody>
+				<?php while($post = mysqli_fetch_assoc($posts)) : ?>
+				<!-- get category title of each post from categories table -->
+				<?php
+				$category_id = $post['category_id'];
+				$category_query = "SELECT title from categories WHERE id=$category_id";
+				$category_result = mysqli_query($connection, $category_query); 
+				$category = mysqli_fetch_assoc($category_result);
+				
+				?>
                     <tr>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Anime</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
+                        <td><?= $post['title']  ?></td>
+                        <td><?= $category['title'] ?></td>
+                        <td><a href="<?= ROOT_URL  ?>edit-post.php?id= $post['id'] ?>" class="btn sm">Edit</a></td>
+                        <td><a href="<?= ROOT_URL  ?>delete-post.php?id= $post['id'] ?>" class="btn sm danger">Delete</a></td>
                     </tr>
-                    <tr>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Marvel</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Marvel</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Anime</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                    </tr>
+					<?php endwhile ?>
                 </tbody>
             </table>
+			<?php else : ?>
+				<div class="alert__message error">
+					<?= "No posts found " ?>
+				</div>
+				<?php endif ?>
         </main>
       </div>
     </section>

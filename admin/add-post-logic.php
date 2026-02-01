@@ -13,10 +13,10 @@ if(isset($_POST['submit'])){
 	$is_featured = $is_featured == 1 ?: 0;
 	
 	//validate form input
-	if(!$title) {
+	if (!$title) {
 		$_SESSION['add-post'] = "enter post title";
 	} elseif (!$category_id) {
-		$_SESSION['add-post'] = "enter post category";
+		$_SESSION['add-post'] = "Select post category";
 	}elseif (!$body) {
 		$_SESSION['add-post'] = "enter post body";
 	}elseif (!$thumbnail['name']) {
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 				$_SESSION['add-post'] = "file size too large";
 			}			
 		} else {
-				$_SESSION['add-post'] = "file should be png, jpg, jpeg";
+			$_SESSION['add-post'] = "file should be png, jpg, jpeg";
 		}	
 	}
 	
@@ -57,10 +57,19 @@ if(isset($_POST['submit'])){
 			$zero_all_is_featured_result = mysqli_query($connection, $zero_all_is_featured_query);
 		}
 		
+		//insert post into db 
+		$query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES ('$title', '$body', '$thumbnail_name', $category_id, $author_id, $is_featured )";
+		$result = mysqli_query($connection, $query);
 		
+		if(!mysqli_errno($connection)) {
+			$_SESSION['add-post-success'] = "New post added successfully bro!";
+			header('location: ' . ROOT_URL . 'admin/');
+			die();
+		}
 	}
 }
 
+header('location: ' . ROOT_URL . 'admin/add-post.php');
 
 
 
