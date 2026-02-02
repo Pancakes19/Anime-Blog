@@ -1,7 +1,7 @@
 <?php 
 require 'config/database.php';
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 	$author_id = $_SESSION['user-id'];
 	$title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 	$thumbnail = $_FILES['thumbnail'];
 	
 	//set is_featured to 0 if unchecked 
-	$is_featured = $is_featured == 1 ?: 0;
+	$is_featured = $is_featured == 1 ? : 0;
 	
 	//validate form input
 	if (!$title) {
@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 		$extension = end($extension);
 		if (in_array($extension, $allowed_files)) {
 			//make sure image is not too big
-			if ($thumbnail['size'] < 2_000_000) {
+			if ($thumbnail['size'] < 2000000) {
 				//upload pic
 				move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
 			} else {
