@@ -9,6 +9,17 @@ $posts = mysqli_query($connection, $query);
 ?>
 
     <section class="dashboard">
+	
+	<?php if(isset($_SESSION['add-post-success'])) : //shows if category was a success?>
+		 <div class="alert__message success container">
+			<p>
+				<?= $_SESSION['add-post-success']; 
+				unset($_SESSION['add-post-success']);
+				?>
+			</p>
+		</div>
+		<?php endif ?>
+	
       <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-double-right"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-double-left"></i></button>
