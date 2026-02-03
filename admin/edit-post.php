@@ -1,5 +1,11 @@
 <?php
 include 'partials/header.php';
+//fetch cats from db
+
+$category_query = "SELECT * FROM categories";
+$categories = mysqli_query($connection, $category_query);
+
+
 ?>
 
 
@@ -11,7 +17,7 @@ include 'partials/header.php';
         <input type="text" placeholder="Title">
         <select>
             <option value="1">Anime</option>
-            <option value="1">Marvel</option>
+           
         </select>
         <textarea rows="10" placeholder="Body"></textarea>
         <div class="form__control inline">
