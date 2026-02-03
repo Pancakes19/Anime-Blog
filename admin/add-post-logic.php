@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 			//make sure image is not too big
 			if ($thumbnail['size'] < 2000000) {
 				//upload pic
-				move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
+
 			} else {
 				$_SESSION['add-post'] = "file size too large";
 			}			
@@ -59,7 +59,9 @@ if (isset($_POST['submit'])) {
 		
 		//insert post into db 
 		$query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES ('$title', '$body', '$thumbnail_name', $category_id, $author_id, $is_featured )";
+		
 		$result = mysqli_query($connection, $query);
+		move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
 		
 		if(!mysqli_errno($connection)) {
 			$_SESSION['add-post-success'] = "New post added successfully bro!";
