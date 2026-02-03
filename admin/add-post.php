@@ -21,7 +21,9 @@ unset($_SESSION['add-post-data']);
 	<?php if(isset($_SESSION['add-post'])) : ?>
     <div class="alert__message error">
         <p> 
-			<?= $_SESSION['add-post']; ?>
+			<?= $_SESSION['add-post']; 
+			unset($_SESSION['add-post']);
+			?>
 		</p>
     </div>
 	<?php endif ?>
