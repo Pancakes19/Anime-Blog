@@ -23,23 +23,23 @@ if(isset($_GET['id'])) {
 <section class="form__section">
 <div class="container form__section-container">
     <h2>Edit Post</h2>
-    <form action="" enctype="multipart/form-data">
-        <input type="text" value="<?= $post['title'] ?>" placeholder="Title">
-        <select>
+    <form action="<?= ROOT_URL ?>admin/edit-post-logic.php" enctype="multipart/form-data" method="POST">
+        <input type="text" name="title" value="<?= $post['title'] ?>" placeholder="Title">
+        <select nam="category">
 		<?php while ($category = mysqli_fetch_assoc($categories)) : ?>
             <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
 			<?php endwhile ?>       
         </select>
-        <textarea rows="10" value="<?= $post['body'] ?>" placeholder="Body"></textarea>
+        <textarea rows="10"  name="body" placeholder="Body" <?= $post['body'] ?> ></textarea>
         <div class="form__control inline">
             <input type="checkbox" id="is_featured" value="1" checked>
-            <label for="is_featured">Featured</label>
+            <label for="is_featured" name="is_featured">Featured</label>
         </div>
         <div class="form__control">
             <label for="thumbnail">Change thumbnail</label>
-            <input type="file" id="thumbnail">
+            <input type="file" name="thumbnail" id="thumbnail">
         </div>
-        <button type="submit" class="btn">Update post</button>
+        <button type="submit" name="submit" class="btn">Update post</button>
     </form>
 </div>
 </section>
