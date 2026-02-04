@@ -16,11 +16,9 @@ $categories = mysqli_query($connection, $category_query);
     <form action="" enctype="multipart/form-data">
         <input type="text" placeholder="Title">
         <select>
-		<?php while($category = mysqli_fetch_assoc($categories)) : ?>
+		<?php while ($category = mysqli_fetch_assoc($categories)) : ?>
             <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
-			<?php endwhile ?>
-            <option value="1">Anime</option>
-           
+			<?php endwhile ?>       
         </select>
         <textarea rows="10" placeholder="Body"></textarea>
         <div class="form__control inline">
