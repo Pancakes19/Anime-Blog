@@ -27,7 +27,7 @@ if(isset($_GET['id'])) {
 		while($thumbnail = mysqli_fetch_assoc($thumbnails_result)) {
 			$thumbnail_path = '../images/' . $thumbnail['thumbnail'];
 			//delete the thumbnail from pics folder if exists
-			if file_exists($thumbnail_path) {
+			if (file_exists($thumbnail_path)) {
 				unlink($thumbnail_path);
 			}
 		}
