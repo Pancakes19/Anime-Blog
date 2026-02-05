@@ -6,11 +6,17 @@ $featured_query = "SELECT *FROM posts WHERE is_featured=1";
 $featured_result = mysqli_query($connection, $featured_query);
 $featured = mysqli_fetch_assoc($featured_result);
 
+//fetch 9 post from db 
+$query = "SELECT * FROM posts ORDER BY date_time DESC LIMIT 9";
+$result = mysqli_query($connection, $query);
+
 ?>
 
 
 
-	<?php if(mysqli_num_rows($featured_result) ==1) : ?>
+	<?php if(mysqli_num_rows($featured_result) ==1) : 
+	//show featured post, if there is any
+	?>
       <!--=======================Begining of Featured post=================-->
 
       <section class="featured">
@@ -33,12 +39,22 @@ $featured = mysqli_fetch_assoc($featured_result);
               <?= substr($featured['body'], 0, 300) ?>....
             </p>
             <div class="post__author">
+			<?php
+			//fetch author from users table using author_id
+			$author_id = $featured['author_id'];
+			$author_query = "SELECT * FROM users WHERE id=$author_id";
+			$author_result = mysqli_query($connection, $author_query);
+			$author = mysqli_fetch_assoc($author_result);
+			?>
+			
               <div class="post__author-avatar">
-                <img src="./images/cat.jpg">
+                <img src="./images/<?= $author['avatar'] ?>">
               </div>
               <div class="post_author-info">
-                <h5>By: Quinton Khuwiseb</h5>
-                <small>28 February 2024 - 19:23</small>
+                <h5>By: <?= "{$author['firstname']} {$author['lastname']}" ?></h5>
+                <small>
+				<?= date("M d, Y - H:i", strtotime($featured['date_time'])) ?>
+				</small>
               </div>
             </div>
           </div>
