@@ -8,7 +8,8 @@ $featured = mysqli_fetch_assoc($featured_result);
 
 //fetch 9 post from db 
 $query = "SELECT * FROM posts ORDER BY date_time DESC LIMIT 9";
-$result = mysqli_query($connection, $query);
+$posts = mysqli_query($connection, $query);
+
 
 ?>
 
@@ -30,13 +31,12 @@ $result = mysqli_query($connection, $query);
 			$category_id = $featured['category_id'];
 			$category_query = "SELECT * FROM categories WHERE id=$category_id";
 			$category_result = mysqli_query($connection, $category_query);
-			$category = mysqli_fetch_assoc($category_result);
-		  
+			$category = mysqli_fetch_assoc($category_result);		  
 		  ?>
             <a href="<?= ROOT_URL ?>category-post.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title']?></a>
             <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
             <p class="post__body">
-              <?= substr($featured['body'], 0, 300) ?>....
+              <?= substr($featured['body'], 0, 300) ?>...
             </p>
             <div class="post__author">
 			<?php
@@ -65,18 +65,27 @@ $result = mysqli_query($connection, $query);
 
   <section class="posts">
     <div class="container posts__container">
+		<?php while ($post = mysqli_fetch_assoc($posts)) : ?>
       <article class="post">
         <div class="post__thumbnail">
-          <img src="./images/akaza.jpg">
+          <img src="./images/<?= $post['thumbnail'] ?>">
         </div>
         <div class="post__info">
-          <a href="category-post.html" class="category__button">MCU</a>
+		
+		<?php
+			//fetch cats
+			$category_id = $post['category_id'];
+			$category_query = "SELECT * FROM categories WHERE id=$category_id";
+			$category_result = mysqli_query($connection, $category_query);
+			$category = mysqli_fetch_assoc($category_result);		  
+		  ?>
+		
+          <a href="<?= ROOT_URL ?>category-post.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
           <h3 class="post__title">
-            <a href="post.html">rughlerkgjoierdgjoiordj</a>
+            <a href="post.html"><?= $post['title'] ?></a>
           </h3>
           <p class="post__body">
-            rueijfeoirdjgpoeidsjviopedskjgvpoiedskjv
-            ioedskljvoiedskljzvoipesdkl;jzvoid 
+				 <?= substr($post['body'], 0, 200) ?>...
           </p>
           <div class="post__author">
             <div class="post__author-avatar">
@@ -84,121 +93,14 @@ $result = mysqli_query($connection, $query);
             </div>
             <div class="post_author-info">
                   <h5>By: Quinton Khuwiseb</h5>
-                  <small>19 August 2024 - 19:23</small>
+                  <small>
+					<?= date("M d, Y - H:i", strtotime($post['date_time'])) ?>
+				  </small>
                 </div>
-            
-
             </div>
           </div>
         </article>
-      <article class="post">
-        <div class="post__thumbnail">
-          <img src="./images/akaza.jpg">
-        </div>
-        <div class="post__info">
-          <a href="category-post.html" class="category__button">MCU</a>
-          <h3 class="post__title">
-            <a href="post.html">rughlerkgjoierdgjoiordj</a>
-          </h3>
-          <p class="post__body">
-            rueijfeoirdjgpoeidsjviopedskjgvpoiedskjv
-            ioedskljvoiedskljzvoipesdkl;jzvoid 
-          </p>
-          <div class="post__author">
-            <div class="post__author-avatar">
-              <img src="./images/sista.jpg">
-            </div>
-            <div class="post_author-info">
-                  <h5>By: Quinton Khuwiseb</h5>
-                  <small>19 August 2024 - 19:23</small>
-                </div>
-            
-
-            </div>
-          </div>
-        </article>
-      <article class="post">
-        <div class="post__thumbnail">
-          <img src="./images/akaza.jpg">
-        </div>
-        <div class="post__info">
-          <a href="" class="category__button">MCU</a>
-          <h3 class="post__title">
-            <a href="post.html">rughlerkgjoierdgjoiordj</a>
-          </h3>
-          <p class="post__body">
-            rueijfeoirdjgpoeidsjviopedskjgvpoiedskjv
-            ioedskljvoiedskljzvoipesdkl;jzvoid 
-          </p>
-          <div class="post__author">
-            <div class="post__author-avatar">
-              <img src="./images/sista.jpg">
-            </div>
-            <div class="post_author-info">
-                  <h5>By: Quinton Khuwiseb</h5>
-                  <small>19 August 2024 - 19:23</small>
-                </div>
-            
-
-            
-
-            
-
-            </div>
-          </div>
-        </article>
-      <article class="post">
-        <div class="post__thumbnail">
-          <img src="./images/akaza.jpg">
-        </div>
-        <div class="post__info">
-          <a href="" class="category__button">MCU</a>
-          <h3 class="post__title">
-            <a href="post.html">rughlerkgjoierdgjoiordj</a>
-          </h3>
-          <p class="post__body">
-            rueijfeoirdjgpoeidsjviopedskjgvpoiedskjv
-            ioedskljvoiedskljzvoipesdkl;jzvoid 
-          </p>
-          <div class="post__author">
-            <div class="post__author-avatar">
-              <img src="./images/sista.jpg">
-            </div>
-            <div class="post_author-info">
-                  <h5>By: Quinton Khuwiseb</h5>
-                  <small>19 August 2024 - 19:23</small>
-                </div>
-            
-
-            </div>
-          </div>
-        </article>
-      <article class="post">
-        <div class="post__thumbnail">
-          <img src="./images/akaza.jpg">
-        </div>
-        <div class="post__info">
-          <a href="" class="category__button">MCU</a>
-          <h3 class="post__title">
-            <a href="post.html">rughlerkgjoierdgjoiordj</a>
-          </h3>
-          <p class="post__body">
-            rueijfeoirdjgpoeidsjviopedskjgvpoiedskjv
-            ioedskljvoiedskljzvoipesdkl;jzvoid 
-          </p>
-          <div class="post__author">
-            <div class="post__author-avatar">
-              <img src="./images/sista.jpg">
-            </div>
-            <div class="post_author-info">
-                  <h5>By: Quinton Khuwiseb</h5>
-                  <small>19 August 2024 - 19:23</small>
-                </div>
-            
-
-            </div>
-          </div>
-        </article>
+		<?php endwhile ?>
     </div>
   </section>
   <!--==================end of general post======================-->
