@@ -79,4 +79,6 @@ if (isset($_POST['submit'])) {
 	}
 }
 
+header('location: ' . ROOT_URL . 'admin/');
+die();
 	
