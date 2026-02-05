@@ -25,6 +25,13 @@ $posts = mysqli_query($connection, $query);
 				unset($_SESSION['edit-post-success']);
 				?>
 			</p>
+		</div><?php elseif (isset($_SESSION['edit-post'])) : //shows if edit post was not success?>
+		 <div class="alert__message error container">
+			<p>
+				<?= $_SESSION['edit-post']; 
+				unset($_SESSION['edit-post']);
+				?>
+			</p>
 		</div>
 		<?php endif ?>
 	
