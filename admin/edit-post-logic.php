@@ -56,9 +56,9 @@ if (isset($_POST['submit'])) {
     }
 	
 	//redirect back (with for data) to add-post page if there is any problem
-	if(isset($_SESSION['add-post'])) {
-		$_SESSION['add-post-data'] = $_POST;
-		header('location: ' . ROOT_URL . 'admin/add-post.php');
+	if(isset($_SESSION['edit-post'])) {
+		$_SESSION['edit-post-data'] = $_POST;
+		header('location: ' . ROOT_URL . 'admin/');
 		die();
 	} else {
 		// set is_feature for all post to 0 if this post is featured
@@ -72,4 +72,11 @@ if (isset($_POST['submit'])) {
 		
 		$query = "UPDATE posts SET title='$title', body='$body', thumbnail='$thumbnail_to_insert', category=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
 		$result = mysqli_query($connection, $query);
+	}
+	
+	if (!mysqli_errno($connection)) {
+		$_SESSION['edit-post-success'] = "Post updated successfully";
+	}
 }
+
+	
