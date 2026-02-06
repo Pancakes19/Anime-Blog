@@ -123,10 +123,10 @@ $posts = mysqli_query($connection, $query);
     <div class="container category__buttons-container">
 	<?php 
 	$all_categories_query = "SELECT * FROM categories ORDER BY title";
-	$all_categories_result = mysqli_query($connection, $all_categories_query);
+	$all_categories = mysqli_query($connection, $all_categories_query);
 	?>
-	<?php while($category = mysqli_fetch_assoc($all_categories_result)) : ?>
-      <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
+	<?php while ($category = mysqli_fetch_assoc($all_categories)) : ?>
+      <a href="<?= ROOT_URL ?>category-post.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
 	<?php endwhile ?>
     </div>
   </section>
