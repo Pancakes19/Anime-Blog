@@ -42,10 +42,10 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             <div class="singlepost__thumbnail">
-                <img src="./images/akaza.jpg">
+                <img src="./images/<?= $post['thumbnail'] ?>">
             </div>
             <p>
-            
+            <?= $post['body'] ?>
             </p>
     </div>
 </section>
