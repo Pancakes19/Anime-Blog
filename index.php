@@ -121,8 +121,13 @@ $posts = mysqli_query($connection, $query);
 
   <section class="category__buttons">
     <div class="container category__buttons-container">
+	<?php 
+	$all_categories_query = "SELECT * FROM categories";
+	$all_categories_result = mysqli_query($connection, $all_categories_query);
+	?>
+	<?php while($category = mysqli_fetch_assoc($all_categories_result)) : ?>
       <a href="" class="category__button">Anime</a>
-      <a href="" class="category__button">Marvel</a>
+	<?php endwhile ?>
     </div>
   </section>
 
