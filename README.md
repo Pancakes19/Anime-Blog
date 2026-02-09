@@ -13,9 +13,16 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 - Session-based authentication
 - Admin role detection
 - Proper logout with full session destruction
+  
 ### 🛠 Admin Dashboard
 - Add, edit, and delete blog posts
 - Manage users
 - Manage categories
 - Upload and display user avatars
 - Protected admin-only routes
+
+### 📖 Blog Functionality
+- View all blog posts
+- Filter posts by category
+- Individual post pages
+- Dynamic content fetched from MySQL
