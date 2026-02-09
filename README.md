@@ -36,3 +36,12 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 ---
 
 ## 🧰 Tech Stack
+- **Frontend:** HTML5, CSS3, JavaScript  
+- **Backend:** PHP (Procedural, MySQLi)  
+- **Database:** MySQL  
+- **Hosting:** InfinityFree  
+- **Version Control:** Git & GitHub  
+
+---
+
+## 📁 Project Structure
