@@ -26,3 +26,13 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 - Filter posts by category
 - Individual post pages
 - Dynamic content fetched from MySQL
+
+### 🔐 Security
+- Prepared statements (SQL injection protection)
+- Session regeneration on login
+- Centralized session bootstrap
+- Role-based access control
+
+---
+
+## 🧰 Tech Stack
