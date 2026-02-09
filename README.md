@@ -5,29 +5,29 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 👤 Authentication & Authorization
+###  Authentication & Authorization
 - User signup and signin
 - Secure password hashing using `password_hash()` and `password_verify()`
 - Session-based authentication
 - Admin role detection
 - Proper logout with full session destruction
   
-### 🛠 Admin Dashboard
+###  Admin Dashboard
 - Add, edit, and delete blog posts
 - Manage users
 - Manage categories
 - Upload and display user avatars
 - Protected admin-only routes
 
-### 📖 Blog Functionality
+###  Blog Functionality
 - View all blog posts
 - Filter posts by category
 - Individual post pages
 - Dynamic content fetched from MySQL
 
-### 🔐 Security
+###  Security
 - Prepared statements (SQL injection protection)
 - Session regeneration on login
 - Centralized session bootstrap
@@ -35,7 +35,7 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 - **Frontend:** HTML5, CSS3, JavaScript  
 - **Backend:** PHP (Procedural, MySQLi)  
 - **Database:** MySQL  
@@ -44,7 +44,7 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 htdocs/
