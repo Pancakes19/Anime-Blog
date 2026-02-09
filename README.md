@@ -45,3 +45,37 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 ---
 
 ## 📁 Project Structure
+
+```text
+htdocs/
+│
+├── admin/
+│   ├── partials/
+│   │   └── header.php
+│   ├── add-post.php
+│   ├── edit-post.php
+│   ├── delete-post.php
+│   ├── manage-users.php
+│   └── ...
+│
+├── config/
+│   ├── bootstrap.php
+│   ├── constants.php
+│   └── database.php
+│
+├── partials/
+│   ├── header.php
+│   └── footer.php
+│
+├── images/
+├── css/
+├── js/
+│
+├── index.php
+├── blog.php
+├── signin.php
+├── signin-logic.php
+├── signup.php
+├── signup-logic.php
+├── logout.php
+└── README.md
