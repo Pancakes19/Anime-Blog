@@ -1,5 +1,5 @@
 <?php
-require 'config/bootstrap.php';
+require '../config/bootstrap.php';
 include 'partials/header.php';
 
 
