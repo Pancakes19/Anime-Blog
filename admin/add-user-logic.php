@@ -1,4 +1,5 @@
 <?php
+require '../config/bootstrap.php';
 require 'config/database.php';
 
 //created table users
