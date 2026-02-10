@@ -1,5 +1,5 @@
 <?php
-include 'partials/header.php';
+include 'partials/header.php';        
 
 
 //fetch post if id is set
@@ -73,7 +73,7 @@ if(isset($_GET['id'])) {
   </section>
   <?php else : ?>
   <div class="alert__message error lg">
-	<p>No posts found</p>
+	<p>No posts found for this category bro!</p>
   </div>
   <?php endif ?>
   <!--==================end of general post======================-->

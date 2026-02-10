@@ -12,10 +12,6 @@ require 'config/constants.php';
 	unset($_SESSION['signup-data']);
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
