@@ -1,5 +1,5 @@
 <?php
-require 'config/bootstrap.php';
+require '../config/bootstrap.php';
 require 'config/database.php';
 
 // Enable error reporting
