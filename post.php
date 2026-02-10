@@ -1,4 +1,5 @@
 <?php
+require 'config/bootstrap.php';
 include 'partials/header.php';
 
 //fetch post from db if id is set
