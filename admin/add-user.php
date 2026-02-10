@@ -1,4 +1,5 @@
 <?php
+require '../config/bootstrap.php';
 include 'partials/header.php';
 
 //get back form data if the was an error to set it back to form
