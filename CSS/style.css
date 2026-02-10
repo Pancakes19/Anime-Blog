@@ -10,7 +10,7 @@
 --color-grey-900: #1e1e66; 
 --color-grey-700: #2d2b7c; 
 --color-grey-300: rgba(242, 242, 254, 0.3); 
---color-grey-300: rgba(242, 242, 254, 0.7); 
+--color-grey-100: rgba(242, 242, 254, 0.7); 
 --color-white: #f2f2fe; 
 --color-bg: #0f0f3e;
 
@@ -34,7 +34,7 @@
     padding: 0;
     outline: 0;
     border: 0;
-    appearance: 0;
+    appearance: none;
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
@@ -47,7 +47,7 @@ body{
      color: var(--color-grey-300);
      overflow-x: hidden;
      background: var(--color-bg);
-     font-size: 0.9rems;
+     font-size: 0.9rem;
 }
 
 .container {
@@ -77,7 +77,7 @@ h1 {
 
 h2 {
     font-size: 1.7rem;
-    margin: 1 rem 0;
+    margin: 1rem 0;
 }
 
 h3{
@@ -91,12 +91,12 @@ h4{
 
 a{
     color: var(--color-white);
-    transform: var(--transition);
+    transition: var(--transition);
 }
 
 img {
     display: block;
-    width: 120%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -127,7 +127,7 @@ nav button {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    overFlow: hidden;
+    overflow: hidden;
     border: 0.2rem solid var(--color-bg);
 }
 
@@ -460,7 +460,7 @@ footer{
 
 .alert__message.success{
     background: var(--color-green-light);
-    color: var(--green-red);
+    color: var(--color-green);
 }
 /*centres error on empty pages*/
 .alert__message.lg {
