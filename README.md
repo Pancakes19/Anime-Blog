@@ -1,2 +1,81 @@
-hello!!
-this is a blog project with users that can sign in and post blogs and reviews on anime and any other stuff they have watched. the web app allows users to create post with different categories and so far we only have Marvel and anime. the are two different users, admin and author. admin has alot more capabilities then the normal author. the database is done with mysql and php
+# 📝 Quinton’s Blog Website
+
+A full-stack **PHP blog application** featuring secure user authentication, an admin dashboard, and dynamic content publishing.  
+Built with clean PHP architecture, centralized session handling, and real-world hosting considerations.
+
+---
+
+##  Features
+
+###  Authentication & Authorization
+- User signup and signin
+- Secure password hashing using `password_hash()` and `password_verify()`
+- Session-based authentication
+- Admin role detection
+- Proper logout with full session destruction
+  
+###  Admin Dashboard
+- Add, edit, and delete blog posts
+- Manage users
+- Manage categories
+- Upload and display user avatars
+- Protected admin-only routes
+
+###  Blog Functionality
+- View all blog posts
+- Filter posts by category
+- Individual post pages
+- Dynamic content fetched from MySQL
+
+###  Security
+- Prepared statements (SQL injection protection)
+- Session regeneration on login
+- Centralized session bootstrap
+- Role-based access control
+
+---
+
+##  Tech Stack
+- **Frontend:** HTML5, CSS3, JavaScript  
+- **Backend:** PHP (Procedural, MySQLi)  
+- **Database:** MySQL  
+- **Hosting:** InfinityFree  
+- **Version Control:** Git & GitHub  
+
+---
+
+##  Project Structure
+
+```text
+htdocs/
+│
+├── admin/
+│   ├── partials/
+│   │   └── header.php
+│   ├── add-post.php
+│   ├── edit-post.php
+│   ├── delete-post.php
+│   ├── manage-users.php
+│   └── ...
+│
+├── config/
+│   ├── bootstrap.php
+│   ├── constants.php
+│   └── database.php
+│
+├── partials/
+│   ├── header.php
+│   └── footer.php
+│
+├── images/
+├── css/
+├── js/
+│
+├── index.php
+├── blog.php
+├── signin.php
+├── signin-logic.php
+├── signup.php
+├── signup-logic.php
+├── logout.php
+└── README.md
