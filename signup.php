@@ -1,4 +1,5 @@
 <?php
+require 'config/bootstrap.php';
 require 'config/constants.php';
 
 	//get back form data if the was an error to set it back to form
@@ -12,6 +13,10 @@ require 'config/constants.php';
 	unset($_SESSION['signup-data']);
 
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
