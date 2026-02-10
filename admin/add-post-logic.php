@@ -1,4 +1,5 @@
-<?php 
+<?php
+require '../config/bootstrap.php';
 require 'config/database.php';
 
 if (isset($_POST['submit'])) {
