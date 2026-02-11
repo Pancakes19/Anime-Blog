@@ -11,12 +11,12 @@
     <article>
       <ul>
         <li><a href="">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/in/quinton-khuwiseb-b85b432a2/">Linkedin</a></li>
+        <li><a href="https://www.linkedin.com/in/quinton-khuwiseb-b85b432a2/" target="_blank">Linkedin</a></li>
       </ul>
     </article>
     <article>
       <ul>
-        <li><a href="">Github</a></li>
+        <li><a href="https://github.com/Pancakes19" target="_blank">Github</a></li>
         <li><a href="">My Portfolio</a></li>
       </ul>
     </article>
