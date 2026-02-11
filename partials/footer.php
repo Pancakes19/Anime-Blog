@@ -22,7 +22,7 @@
     </article>
     <article>
       <ul>
-        <li><a href="">Email</a></li>
+        <li><a href="mailto:khuwisebquinton@gmail.com">Email</a></li>
         <li><a href="">WhatsApp me</a></li>
       </ul>
     </article>
