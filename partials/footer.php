@@ -17,7 +17,7 @@
     <article>
       <ul>
         <li><a href="https://github.com/Pancakes19" target="_blank">Github</a></li>
-        <li><a href="">My Portfolio</a></li>
+        <li><a href="https://pancakes19.github.io/Portfolio/" target="_blank">My Portfolio</a></li>
       </ul>
     </article>
     <article>
