@@ -58,7 +58,6 @@ body{
 
 section{
     margin-top: 3rem;
-    width: 100vw;
 }
 
 .section__extra-margin {
@@ -95,10 +94,9 @@ a{
 }
 
 img {
+    max-width: 100%;
+    height: auto;
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* nav */
@@ -402,14 +400,17 @@ footer{
 }
 
 .singlepost__container {
-    width: var(--form-width);
-    background: var(--color-grey-900);
-    padding: 1rem 2rem 3rem;
+    width: 100%;
+    max-width: 700px;
+    margin-inline: auto;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-.singlepost__thumbnail{
-    margin: 1.5rem 0 1rem;
-    max-width: 500px;
+.singlepost__thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .singlepost__container p{
@@ -730,7 +731,7 @@ input, textarea, select{
     
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 640px){
     section{
         margin-top: 2rem;
     }
