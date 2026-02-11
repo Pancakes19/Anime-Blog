@@ -11,7 +11,7 @@
     <article>
       <ul>
         <li><a href="">Instagram</a></li>
-        <li><a href="">Linkedin</a></li>
+        <li><a href="https://www.linkedin.com/in/quinton-khuwiseb-b85b432a2/">Linkedin</a></li>
       </ul>
     </article>
     <article>
