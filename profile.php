@@ -4,7 +4,7 @@ include 'partials/header.php'
 
 
       <section class="empty__page">
-        <h1>Contact</h1>
+        <h1>profile</h1>
       </section>
 
 
