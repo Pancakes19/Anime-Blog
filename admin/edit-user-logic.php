@@ -7,14 +7,22 @@ if(isset($_POST['submit'])) {
 	$id = filter_var($_POST['id'],  FILTER_SANITIZE_NUMBER_INT);
 	$firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$username = filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 	$is_admin = filter_var($_POST['userrole'],  FILTER_SANITIZE_NUMBER_INT);
 	
 	//check for valid imput
-	if(!$firstname || !$lastname) {
-		$_SESSION['edit-user'] = "Invalid input on edit user page bro";
+	if(!$firstname) {
+		$_SESSION['edit-user'] = "please enter your firstname bro";
+	} elseif(!$lastname) {
+		$_SESSION['edit-user'] = "Please enter your lastname bro!";
+	}elseif(!$username) {
+		$_SESSION['edit-user'] = "Please enter your username bro!";
+	}elseif(!$email) {
+		$_SESSION['edit-user'] = "Please enter your email bro!";
 	}else {
 		//update users table
-		$query = "UPDATE users SET firstname= '$firstname', lastname='$lastname', is_admin=$is_admin WHERE id=$id LIMIT 1";
+		$query = "UPDATE users SET firstname= '$firstname', lastname='$lastname', username='$username', email='$email', is_admin=$is_admin WHERE id=$id LIMIT 1";
 		$result = mysqli_query($connection, $query);
 		
 		if(mysqli_errno($connection)) {
