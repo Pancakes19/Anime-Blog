@@ -19,7 +19,7 @@ $users = mysqli_query($connection, $query);
 				?>
 			</p>
 		</div>
-		<?php elseif (isset($_SESSION['edit-user-success'])) : ?> //if edit user success
+		<?php elseif (isset($_SESSION['edit-user-success'])) : //if edit user success?> 
 		 <div class="alert__message success container">
 			<p>
 				<?= $_SESSION['edit-user-success']; 
@@ -27,21 +27,21 @@ $users = mysqli_query($connection, $query);
 				?>
 			</p>
 		</div>
-		<?php elseif (isset($_SESSION['edit-user'])) : ?> //if edit user not success
+		<?php elseif (isset($_SESSION['edit-user'])) : //if edit user not success?> 
 		 <div class="alert__message error container">
 			<p>
 				<?= $_SESSION['edit-user']; 
 				unset($_SESSION['edit-user']);
 				?>
 			</p>
-		</div><?php elseif (isset($_SESSION['delete-user'])) : ?> // if delete is not successfull
+		</div><?php elseif (isset($_SESSION['delete-user'])) : // if delete is not successfull?> 
 		 <div class="alert__message error container">
 			<p>
 				<?= $_SESSION['delete-user']; 
 				unset($_SESSION['delete-user']);
 				?>       
 			</p>
-		</div><?php elseif (isset($_SESSION['delete-user-success'])) : ?> //if delete is successfull
+		</div><?php elseif (isset($_SESSION['delete-user-success'])) : //if delete is successfull?> 
 		 <div class="alert__message success container">
 			<p>
 				<?= $_SESSION['delete-user-success']; 
