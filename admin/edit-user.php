@@ -1,5 +1,5 @@
 <?php
-require 'config/bootstrap.php';
+require '../config/bootstrap.php';
 include 'partials/header.php';
 
 if(isset($_GET['id'])) {
@@ -24,6 +24,9 @@ if(isset($_GET['id'])) {
         <input type="hidden" value="<?= $user['id'] ?>" name="id" >
         <input type="text" value="<?= $user['firstname'] ?>" name="firstname" placeholder="First Name">
         <input type="text" value="<?= $user['lastname'] ?>" name="lastname" placeholder="Last Name">
+        <input type="text" value="<?= $user['username'] ?>" name="username" placeholder="Username">
+        <input type="email" value="<?= $user['email'] ?>" name="email" placeholder="Email">
+
         <select name="userrole">
             <option value="0">Author</option>
             <option value="1">Admin</option>
