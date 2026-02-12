@@ -32,7 +32,7 @@ if(isset($_SESSION['user-id'])) {
               <ul class="nav__items">
                   <li><a href="<?= ROOT_URL ?>blog.php">Blog</a></li>
                   <li><a href="<?= ROOT_URL ?>about.php">About</a></li>
-                  <li><a href="<?= ROOT_URL ?>services.php">Servies</a></li>
+                  <li><a href="<?= ROOT_URL ?>services.php">Services</a></li>
                   <li><a href="<?= ROOT_URL ?>contact.php">Contact</a></li>
                 <?php if(isset($_SESSION['user-id'] )) :  ?>
 					  <li class="nav__profile">
