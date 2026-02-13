@@ -1,10 +1,6 @@
 <?php
 require 'config/bootstrap.php';
 
-if(isset($_SESSION['user-id'])) {
-    // Optionally clear stuck sessions on homepage
-    // Remove this after testing if you want users to stay logged in
-}
 include 'partials/header.php';
 
 //fetch featured post from database
