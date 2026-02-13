@@ -1,6 +1,6 @@
 <?php
 require '../config/bootstrap.php';
-require '../session-timout.php';
+require '../config/session-timout.php';
 require 'config/database.php';
 
 if(isset($_GET['id'])) {
