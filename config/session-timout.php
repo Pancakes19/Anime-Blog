@@ -1,7 +1,7 @@
 <?php
 require 'database.php'; // only if needed
 
-$timeout_duration = 60; // 2 minutes for testing
+$timeout_duration = 2700; // 45 minutes
 
 // Use correct session key
 if (!isset($_SESSION['user-id'])) {
