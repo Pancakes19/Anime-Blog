@@ -1,5 +1,4 @@
 <?php
-require 'database.php'; // only if needed
 
 $timeout_duration = 2700; // 45 minutes
 
