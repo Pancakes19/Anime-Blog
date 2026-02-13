@@ -1,5 +1,6 @@
 <?php
 require '../config/bootstrap.php';
+require '../config/session-timout.php';
 include 'partials/header.php';
 
 // Fetch current users posts from db 

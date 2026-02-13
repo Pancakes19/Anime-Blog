@@ -1,5 +1,6 @@
 <?php
 require '../config/bootstrap.php';
+require '../session-timout.php';
 include 'partials/header.php';
 
 //fetch users from database except the current user

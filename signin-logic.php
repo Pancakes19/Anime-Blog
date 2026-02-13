@@ -26,20 +26,24 @@ if(isset($_POST['submit'])) {
 			
 			// Compare form password with database password
 			if(password_verify($password, $db_password)) {
-				// Regenerate session ID to prevent session fixation
-				session_regenerate_id(true);
-				
-				// Set session for access control
-				$_SESSION['user-id'] = $user_record['id'];
-				
-				// Set session if user is an admin
-				if($user_record['is_admin'] == 1) {
-					$_SESSION['user_is_admin'] = true;
-				}
-				
-				// Redirect to admin dashboard
-				header('location: ' . ROOT_URL . 'admin/');
-				die();
+
+			// 🔐 Prevent session fixation
+			session_regenerate_id(true);
+
+			// 👤 Store user ID
+			$_SESSION['user-id'] = $user_record['id'];
+
+			// 🕒 Start inactivity timer (45 minutes)
+			$_SESSION['LAST_ACTIVITY'] = time();
+
+			// 👑 If admin
+			if($user_record['is_admin'] == 1) {
+				$_SESSION['user_is_admin'] = true;
+			}
+
+			// 🚀 Redirect
+			header('location: ' . ROOT_URL . 'admin/');
+			die();
 			} else { 
 				$_SESSION['signin'] = "I think something is wrong bruh!";
 			}

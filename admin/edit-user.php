@@ -1,5 +1,6 @@
 <?php
 require '../config/bootstrap.php';
+require '../session-timout.php';
 include 'partials/header.php';
 
 if(isset($_GET['id'])) {

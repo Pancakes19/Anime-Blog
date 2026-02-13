@@ -1,5 +1,6 @@
 <?php
-require 'config/bootstrap.php';
+require '../config/bootstrap.php';
+require '../session-timout.php';
 include 'partials/header.php';
 
 // Enable error reporting
