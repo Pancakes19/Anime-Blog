@@ -731,7 +731,7 @@ input, textarea, select{
     
 }
 
-@media screen and (max-width: 640px){
+@media screen and (max-width: 600px){
     section{
         margin-top: 2rem;
     }
