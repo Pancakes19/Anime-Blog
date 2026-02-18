@@ -2,9 +2,19 @@
 require 'config/bootstrap.php';
 include 'partials/header.php';
 
-//fetch all post from db 
-$query = "SELECT * FROM posts ORDER BY date_time DESC";
+$search = isset($_GET['query']) ? filter_var($_GET['query'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
+
+if ($search) {
+    // Search by title or body
+    $query = "SELECT * FROM posts 
+              WHERE title LIKE '%$search%' OR body LIKE '%$search%' 
+              ORDER BY date_time DESC";
+} else {
+    $query = "SELECT * FROM posts ORDER BY date_time DESC";
+}
+
 $posts = mysqli_query($connection, $query);
+
 ?>
 
 <section class="search__bar">
