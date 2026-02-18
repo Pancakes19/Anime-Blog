@@ -8,14 +8,15 @@ $posts = mysqli_query($connection, $query);
 ?>
 
 <section class="search__bar">
-    <form class="container container__search-bar" action="">
+    <form class="container container__search-bar" action="" method="GET">
         <div>
             <i class="uil uil-search"></i>
-            <input type="search" name="" placeholder="Search">
+            <input type="search" name="query" placeholder="Search" value="<?= isset($_GET['query']) ? htmlspecialchars($_GET['query']) : '' ?>">
         </div>
-        <button type="submit" class="btn"> Go</button>
+        <button type="submit" class="btn">Go</button>
     </form>
 </section>
+
 
 
 
