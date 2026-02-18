@@ -41,6 +41,9 @@
 
 }
 
+
+
+
 body{
      font-family: "Montserrat", sans-serif;
      line-height: 1.6;
@@ -51,8 +54,8 @@ body{
 }
 
 .container {
-    width: var(--container-width-lg);
-    max-width: 1800px;
+    max-width: 1200px;
+    width: 100%;
     margin-inline: auto;
 }
 
@@ -102,7 +105,7 @@ img {
 /* nav */
 nav{
     background: var(--color-primary);
-    width: 100vw;
+    width: 100%;
     height: 4.5rem;
     position: fixed;
     top: 0;
@@ -505,6 +508,7 @@ input, textarea, select{
 
 /*======Dashboard======*/
 .dashboard{
+    width: 100%;
     margin-top: 6rem;
 }
 
@@ -564,6 +568,19 @@ input, textarea, select{
     color: var(--color-white);
 }
 
+/*==fixing table styling on mobile===*/
+.table__wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.dashboard main table {
+    width: 100%;
+}
+
+
+/*==end of fixing table on mobile===*/
+
 .dashboard main table td{
     padding: 0.8rem;
     border-bottom: 1px solid var(--color-grey-300);
@@ -579,9 +596,7 @@ input, textarea, select{
 /*==Devices===*/
 
 @media  screen and (max-width:1024px) {
-    .container{
-        width: var(--container-width-md);
-    }
+    
 
     h2{
         font-size: 1.6rem;
@@ -697,8 +712,9 @@ input, textarea, select{
     }
 
     .footer__container{
-        grid-template-columns:1fr 1fr ;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 
 
@@ -821,6 +837,20 @@ input, textarea, select{
         cursor: pointer;
         box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.4);
     }
+
+
+    .dashboard .container {
+    width: 100%;
+}
+
+.dashboard main table {
+    width: 100%;
+}
+
+.table__wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
 
     .dashboard aside a h5{
         display: inline-block;
