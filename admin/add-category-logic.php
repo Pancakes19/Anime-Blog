@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
 	if(!$title) {
 		$_SESSION['add-category'] = "Enter the category title bro!";
 	} elseif(!$description){
-		$_SESSION['add-category'] = "Enter the category's description bro bro!";		
+		$_SESSION['add-category'] = "Enter the category's description bro!";		
 	}
 	
 	//redirect back to add category page with form data if problems happen
