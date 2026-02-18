@@ -2,6 +2,8 @@
 require '../config/bootstrap.php';
 require '../config/session-timout.php';
 require 'config/database.php';
+date_default_timezone_set('Africa/Windhoek'); // Namibia timezone
+
 
 if (isset($_POST['submit'])) {
 	$author_id = $_SESSION['user-id'];
@@ -58,9 +60,12 @@ if (isset($_POST['submit'])) {
 			$zero_all_is_featured_query = "UPDATE posts SET is_featured=0";
 			$zero_all_is_featured_result = mysqli_query($connection, $zero_all_is_featured_query);
 		}
-		
+		//********************************* */
+		$date_time = date('Y-m-d H:i:s'); // Namibia local time
+		//************************************ */
 		//insert post into db 
-		$query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES ('$title', '$body', '$thumbnail_name', $category_id, $author_id, $is_featured )";
+        $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured, date_time) 
+          VALUES ('$title', '$body', '$thumbnail_name', $category_id, $author_id, $is_featured, '$date_time')";
 		
 		$result = mysqli_query($connection, $query);
 		move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
