@@ -2,10 +2,10 @@
 include 'partials/header.php'
 ?>
 
+<section class="form__section">
+      <div class="container dashboard__container">
 
-
-
-    <section class="form__section">
+    
     <div class="container form__section-container">
     <h2>Edit User</h2>
     <form action="<?= ROOT_URL ?>admin/edit-user-logic.php" method="POST">
@@ -21,6 +21,7 @@ include 'partials/header.php'
         </select>
         <button type="submit" name="submit" class="btn">Update User</button>
     </form>
+</div>
 </div>
 </section>
 
