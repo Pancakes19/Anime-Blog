@@ -3,9 +3,9 @@ include 'partials/header.php'
 ?>
 
 
-      <section class="empty__page">
-        <h1>profile</h1>
-      </section>
+    <div class="container dashboard__container">
+      
+    </div>
 
 
 <?php
