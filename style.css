@@ -567,6 +567,48 @@ input, textarea, select{
     transition: var(--transition);
 }
 
+
+
+/*==trying profile edit===*/
+/* ===== Edit User Layout Fix ===== */
+
+.dashboard main .form__section {
+    display: flex;          /* override grid */
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;           /* remove full screen height */
+}
+
+.dashboard main .form__section-container {
+    width: 100%;
+}
+
+/* Make dashboard content split into two columns */
+.dashboard {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+/* Style the image side */
+.dashboard > aside {
+    flex: 1;
+}
+
+.dashboard > aside img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: var(--card-border-radius-3);
+}
+
+/* Form side */
+.dashboard > main {
+    flex: 2;
+}
+/*==trying profile edit===*/
+
+
 /*==Devices===*/
 
 @media  screen and (max-width:1024px) {
