@@ -191,8 +191,8 @@ nav button {
 }
 
 .post__thumbnail{
-    border-radius: var(--card-border-radius-5) 0;
-    border: 1rem solid var(--color-grey-900);
+    border-radius: var(--card-border-radius-2) 0;
+    border: 0.5rem solid var(--color-grey-900);
     overflow: hidden;
     margin-bottom: 1.6rem;
 }
@@ -228,6 +228,7 @@ nav button {
 
 .featured .post__thumbnail {
     height: fit-content;
+
 }
 
 /*=================general post styling==============*/
