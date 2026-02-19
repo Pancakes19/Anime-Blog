@@ -52,7 +52,7 @@ $posts = mysqli_query($connection, $query);
 		</div>
 	<?php endif ?>
 	
-      <div class="container dashboard__container">
+      <div class="containder dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-double-right"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-double-left"></i></button>
         <aside>
