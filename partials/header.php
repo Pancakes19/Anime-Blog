@@ -18,7 +18,7 @@ if(isset($_SESSION['user-id'])) {
     <meta http-equiv="X-UA_-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Website</title>
-    <link rel="stylesheet" href="<?= ROOT_URL ?>/CSS/style.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>CSS/style.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
