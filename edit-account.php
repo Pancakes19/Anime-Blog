@@ -6,7 +6,7 @@ include 'partials/header.php'
 	
 	
         <aside>
-          <img src="images/image.png" alt="">
+          
         </aside>
         <main>
           <section class="form__section">
