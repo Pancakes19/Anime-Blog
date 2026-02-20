@@ -567,6 +567,38 @@ input, textarea, select{
     cursor: default;
     transition: var(--transition);
 }
+/*==trying to fix layout===*/
+
+
+/* 1. This prevents the table from pushing the screen wide */
+.table__wrapper {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* 2. Target the table inside the wrapper */
+.dashboard main table {
+    min-width: 600px; /* Ensures the table doesn't look squashed on tiny screens */
+    width: 100%;
+}
+
+/* 3. Make the text smaller on mobile only */
+@media screen and (max-width: 640px) {
+    .dashboard main table {
+        font-size: 0.75rem; /* Makes the table text slightly smaller */
+    }
+    
+    .dashboard main table th, 
+    .dashboard main table td {
+        padding: 0.5rem; /* Reduces padding to save space */
+    }
+
+    .btn.sm {
+        padding: 0.2rem 0.4rem; /* Makes buttons even smaller on mobile */
+    }
+}
 
 /*==Devices===*/
 
