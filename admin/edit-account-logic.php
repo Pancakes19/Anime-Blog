@@ -34,5 +34,5 @@ if(isset($_POST['submit'])) {
 	}
 }
 
-header('location: ' . ROOT_URL . 'admin/edit-account.php');
+header('location: ' . ROOT_URL . 'admin/index.php');
 die();

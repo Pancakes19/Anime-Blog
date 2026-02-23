@@ -3,11 +3,14 @@ require '../config/bootstrap.php';
 require '../config/session-timout.php';
 include 'partials/header.php';
 
-if(isset($_GET['id'])) {
-	$id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-	$query = "SELECT * FROM users WHERE id=$id";
-	$result = mysqli_query($connection, $query);
-	$user = mysqli_fetch_assoc($result);
+if(isset($_SESSION['user-id'])) {
+
+    $current_user_id = $_SESSION['user-id'];
+
+    $query = "SELECT * FROM users WHERE id=$current_user_id";
+    $result = mysqli_query($connection, $query);
+    $user = mysqli_fetch_assoc($result);
+
 } else {
 	header('location: ' . ROOT_URL . 'admin/manage-users.php');
 	die();
@@ -44,5 +47,5 @@ if(isset($_GET['id'])) {
 
 
 <?php
-include 'partials/footer.php'
+include '../partials/footer.php'
 ?>
