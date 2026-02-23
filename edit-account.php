@@ -22,7 +22,7 @@ if(isset($_GET['id'])) {
           <section class="form__section">
           <div class="container form__section-container">
     <h2>Edit my details</h2>
-    <form action="<?= ROOT_URL ?>admin/edit-user-logic.php" method="POST">
+    <form action="<?= ROOT_URL ?>admin/edit-logic.php" method="POST">
         <input type="hidden" value="<?= $user['id'] ?>" name="id" >
         <input type="text" value="<?= $user['firstname'] ?>" name="firstname" placeholder="First Name">
         <input type="text" value="<?= $user['lastname'] ?>" name="lastname" placeholder="Last Name">
