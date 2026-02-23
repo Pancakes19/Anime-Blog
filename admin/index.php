@@ -123,7 +123,7 @@ $posts = mysqli_query($connection, $query);
             </table>
 			<?php else : ?>
 				<div class="alert__message error">
-					<?= "No posts found" ?>
+					<?= "No posts found bro!" ?>
 				</div>
 			<?php endif ?>
         </main>
