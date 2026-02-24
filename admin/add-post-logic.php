@@ -2,86 +2,97 @@
 require '../config/bootstrap.php';
 require '../config/session-timout.php';
 require 'config/database.php';
-date_default_timezone_set('Africa/Windhoek'); // Namibia timezone
 
+date_default_timezone_set('Africa/Windhoek');
 
 if (isset($_POST['submit'])) {
-	$author_id = $_SESSION['user-id'];
-	$title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
-	$is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
-	$thumbnail = $_FILES['thumbnail'];
-	
-	//set is_featured to 0 if unchecked 
-	$is_featured = $is_featured == 1 ? : 0;
-	
-	//validate form input
-	if (!$title) {
-		$_SESSION['add-post'] = "enter post title";
-	} elseif (!$category_id) {
-		$_SESSION['add-post'] = "Select post category";
-	}elseif (!$body) {
-		$_SESSION['add-post'] = "enter post body";
-	}elseif (!$thumbnail['name']) {
-		$_SESSION['add-post'] = "choose post thumbnail";
-	} else {
-		//rename image with timestamp
-		$time = time();
-		$thumbnail_name = $time . $thumbnail['name'];
-		$thumbnail_tmp_name = $thumbnail['tmp_name'];
-		$thumbnail_destination_path = '../images/' . $thumbnail_name;
-		
-		//make sure file is an image
-		$allowed_files = ['jpg', 'png', 'jpeg'];
-		$extension = explode('.', $thumbnail_name);
-		$extension = end($extension);
-		if (in_array($extension, $allowed_files)) {
-			//make sure image is not too big
-			if ($thumbnail['size'] < 2000000) {
-				//upload pic
 
-			} else {
-				$_SESSION['add-post'] = "file size too large";
-			}			
-		} else {
-			$_SESSION['add-post'] = "file should be png, jpg, jpeg";
-		}	
-	}
-	
-	//redirect back (with for data) to add-post page if there is any problem
-	if(isset($_SESSION['add-post'])) {
-		$_SESSION['add-post-data'] = $_POST;
-		header('location: ' . ROOT_URL . 'admin/add-post.php');
-		die();
-	} else {
-		// set is_feature for all post to 0 if this post is featured
-		if($is_featured == 1) {
-			$zero_all_is_featured_query = "UPDATE posts SET is_featured=0";
-			$zero_all_is_featured_result = mysqli_query($connection, $zero_all_is_featured_query);
-		}
-		//********************************* */
-		$date_time = date('Y-m-d H:i:s'); // Namibia local time
-		//************************************ */
-		//insert post into db 
-        $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured, date_time) 
-          VALUES ('$title', '$body', '$thumbnail_name', $category_id, $author_id, $is_featured, '$date_time')";
-		
-		$result = mysqli_query($connection, $query);
-		move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
-		
-		if(!mysqli_errno($connection)) {
-			$_SESSION['add-post-success'] = "New post added successfully bro!";
-			header('location: ' . ROOT_URL . 'admin/');
-			die();
-		}
-	}
+    $author_id = $_SESSION['user-id'];
+    $title = trim($_POST['title']);
+    $body = trim($_POST['body']);
+    $category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
+    $is_featured = isset($_POST['is_featured']) ? 1 : 0;
+    $thumbnail = $_FILES['thumbnail'];
+
+    // Validate input
+    if (!$title) {
+        $_SESSION['add-post'] = "Enter post title";
+    } elseif (!$category_id) {
+        $_SESSION['add-post'] = "Select post category";
+    } elseif (!$body) {
+        $_SESSION['add-post'] = "Enter post body";
+    } elseif (!$thumbnail['name']) {
+        $_SESSION['add-post'] = "Choose post thumbnail";
+    } else {
+
+        $time = time();
+        $thumbnail_name = $time . '_' . basename($thumbnail['name']);
+        $thumbnail_tmp_name = $thumbnail['tmp_name'];
+        $thumbnail_destination_path = '../images/' . $thumbnail_name;
+
+        $allowed_files = ['jpg', 'png', 'jpeg'];
+        $extension = strtolower(pathinfo($thumbnail_name, PATHINFO_EXTENSION));
+
+        if (!in_array($extension, $allowed_files)) {
+            $_SESSION['add-post'] = "File must be jpg, png, or jpeg";
+        } elseif ($thumbnail['size'] > 2000000) {
+            $_SESSION['add-post'] = "File size too large";
+        }
+    }
+
+    // Redirect back if error
+    if (isset($_SESSION['add-post'])) {
+        $_SESSION['add-post-data'] = $_POST;
+        header('location: ' . ROOT_URL . 'admin/add-post.php');
+        exit();
+    }
+
+    // If featured, reset all others
+    if ($is_featured == 1) {
+        $stmt = $connection->prepare("UPDATE posts SET is_featured = 0");
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    $date_time = date('Y-m-d H:i:s');
+
+    // Insert post securely
+    $stmt = $connection->prepare(
+        "INSERT INTO posts 
+        (title, body, thumbnail, category_id, author_id, is_featured, date_time) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)"
+    );
+
+    $stmt->bind_param(
+        "sssiiis",
+        $title,
+        $body,
+        $thumbnail_name,
+        $category_id,
+        $author_id,
+        $is_featured,
+        $date_time
+    );
+
+    if ($stmt->execute()) {
+
+        move_uploaded_file($thumbnail_tmp_name, $thumbnail_destination_path);
+
+        $_SESSION['add-post-success'] = "New post added successfully bro!";
+        header('location: ' . ROOT_URL . 'admin/');
+        exit();
+
+    } else {
+        $_SESSION['add-post'] = "Couldn't add post.";
+        header('location: ' . ROOT_URL . 'admin/add-post.php');
+        exit();
+    }
+
+    $stmt->close();
 }
 
 header('location: ' . ROOT_URL . 'admin/add-post.php');
-
-
-
+exit();
 
 
 
