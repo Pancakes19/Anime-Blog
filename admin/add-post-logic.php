@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    // Redirect back if error
+    // Redirect back if error occurs
     if (isset($_SESSION['add-post'])) {
         $_SESSION['add-post-data'] = $_POST;
         header('location: ' . ROOT_URL . 'admin/add-post.php');
