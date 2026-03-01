@@ -18,7 +18,6 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 - Add, edit, and delete blog posts
 - Manage users
 - Manage categories
-- Upload and display user avatars
 - Protected admin-only routes
 
 ###  Blog Functionality
