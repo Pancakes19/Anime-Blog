@@ -16,9 +16,8 @@ Built with clean PHP architecture, centralized session handling, and real-world 
   
 ###  Admin Dashboard
 - Add, edit, and delete blog posts
-- Manage users
-- Manage categories
-- Protected admin-only routes
+- Add, edit, and delete users
+- Add, edit, and delete categories 
 
 ###  Blog Functionality
 - View all blog posts
