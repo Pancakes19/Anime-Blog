@@ -23,6 +23,7 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 - View all blog posts
 - Filter posts by category
 - Individual post pages
+- Post search Functionality 
 - Dynamic content fetched from MySQL
 
 ###  Security
