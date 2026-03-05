@@ -12,7 +12,7 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 - Secure password hashing using `password_hash()` and `password_verify()`
 - Session-based authentication
 - Admin role detection
-- Proper logout with full session destruction
+- Proper logout with full session destruction.
   
 ###  Admin Dashboard
 - Add, edit, and delete blog posts
