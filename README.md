@@ -24,7 +24,7 @@ Built with clean PHP architecture, centralized session handling, and real-world 
 - Filter posts by category
 - Individual post pages
 - Post search Functionality 
-- Dynamic content fetched from MySQL
+- Dynamic content fetched from MySQL.
 
 ###  Security
 - Prepared statements (SQL injection protection)
