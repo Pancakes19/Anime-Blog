@@ -40,7 +40,7 @@ $posts = mysqli_query($connection, $query);
         <div class="post__info">
 		
 		<?php
-			//fetch cats
+			//fetch cats to display on posts
 			$category_id = $post['category_id'];
 			$category_query = "SELECT * FROM categories WHERE id=$category_id";
 			$category_result = mysqli_query($connection, $category_query);
