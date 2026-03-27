@@ -5,7 +5,7 @@ include 'partials/header.php';
 $search = isset($_GET['query']) ? filter_var($_GET['query'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
 
 if ($search) {
-    // Search by title or body with keywords that match...
+    // Search by title or body wwwwith keywords that match...
     $query = "SELECT * FROM posts 
               WHERE title LIKE '%$search%' OR body LIKE '%$search%' 
               ORDER BY date_time DESC";
